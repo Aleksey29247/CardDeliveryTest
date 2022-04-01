@@ -46,8 +46,8 @@ public class CardDeliveryTest {
         $$x("//input[@type='text']").get(1).val("Пригода Елена Дмитриевна");
         $$x("//input[@type='tel']").get(1).val("+79237481592");
         $("[data-test-id='agreement']").click();
-      
-
+        $(withText("Забронировать")).click();
+        $(withText("Успешно! Встреча успешно забронирована")).should(visible, Duration.ofSeconds(10));
 
 
     }
