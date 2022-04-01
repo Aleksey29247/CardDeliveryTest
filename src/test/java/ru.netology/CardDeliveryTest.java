@@ -17,7 +17,6 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-
 public class CardDeliveryTest {
 
     private WebDriver driver;
@@ -32,11 +31,10 @@ public class CardDeliveryTest {
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "800x800";
     }
-
     @AfterEach
     void tearDown() {
 
-        }
+    }
 
     @Test
     public void souldSendForm() {
@@ -44,10 +42,10 @@ public class CardDeliveryTest {
         open("http://localhost:9999/");
         $$x("//input[@type= 'text']").get(0).val("Новосибирск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
-    //    $$x("//input[@type='tel']").get(0).val("10.04.2022");
-    //    $$x("//input[@type='text']").get(1).val("Пригода Елена Дмитриевна");
-     //   $$x("//input[@type='tel']").get(1).val("+79237481592");
-     //   $("[data-test-id='agreement']").click();
+        $$x("//input[@type='tel']").get(0).val("10.04.2022");
+        $$x("//input[@type='text']").get(1).val("Пригода Елена Дмитриевна");
+        $$x("//input[@type='tel']").get(1).val("+79237481592");
+        $("[data-test-id='agreement']").click();
       
 
 
