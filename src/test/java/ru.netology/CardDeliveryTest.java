@@ -1,7 +1,6 @@
 package ru.netology;
 
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -13,7 +12,9 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
+
 import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -27,10 +28,11 @@ public class CardDeliveryTest {
     }
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "800x800";
+        Configuration.browserSize = "1980x900";
     }
+
     @AfterEach
     void tearDown() {
 
@@ -47,13 +49,10 @@ public class CardDeliveryTest {
         $$x("//input[@type='tel']").get(1).val("+79237481592");
         $("[data-test-id='agreement']").click();
         $(withText("Забронировать")).click();
-        $(withText("Успешно! Встреча успешно забронирована")).should(visible, Duration.ofSeconds(10));
+        $(byText("Успешно!")).shouldBe(visible,Duration.ofSeconds(10));
 
 
     }
-
-
-
 
 
 }
