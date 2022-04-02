@@ -1,7 +1,6 @@
 package ru.netology;
 
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -14,7 +13,7 @@ import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliveryTest {
