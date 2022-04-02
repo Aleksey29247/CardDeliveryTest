@@ -1,8 +1,7 @@
 package ru.netology;
 
-
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selectors;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -13,19 +12,19 @@ import org.openqa.selenium.WebDriver;
 
 import java.time.Duration;
 
-
+import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliveryTest {
 
     private WebDriver driver;
 
+
     @BeforeAll
     public static void setUpAll() {
-        WebDriverManager.chromedriver().setup();
+         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
@@ -49,11 +48,14 @@ public class CardDeliveryTest {
         $$x("//input[@type='text']").get(1).val("Пригода Елена Дмитриевна");
         $$x("//input[@type='tel']").get(1).val("+79237481592");
         $("[data-test-id='agreement']").click();
-        $(withText("Забронировать")).click();
-        $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
+        $$("button").find(exactText("Забронировать")).click();
+        $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
+            }
+
+
     }
 
-}
+
 
 
 
