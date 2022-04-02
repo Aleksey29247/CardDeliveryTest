@@ -50,7 +50,7 @@ public class CardDeliveryTest {
         $$x("//input[@type='tel']").get(1).val("+79237481592");
         $("[data-test-id='agreement']").click();
         $(withText("Забронировать")).click();
-        $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
+        $(withText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
     }
 
 }
