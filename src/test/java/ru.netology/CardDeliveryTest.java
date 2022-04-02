@@ -53,11 +53,6 @@ public class CardDeliveryTest {
         $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
     }
 
-
-
-
-
-
 }
 
 
