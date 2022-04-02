@@ -14,7 +14,6 @@ import java.time.Duration;
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliveryTest {
@@ -40,6 +39,7 @@ public class CardDeliveryTest {
 
     @Test
     public void souldSendForm() {
+        Configuration.holdBrowserOpen = true;
         open("http://localhost:9999/");
         $$x("//input[@type= 'text']").get(0).val("Новосибирск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
