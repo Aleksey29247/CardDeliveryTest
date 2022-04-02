@@ -1,6 +1,7 @@
 package ru.netology;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -30,7 +31,7 @@ public class CardDeliveryTest {
     @BeforeEach
     public void setUp() {
         Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "1980x900";
+        Configuration.browserSize = "800x800";
     }
 
     @AfterEach
@@ -49,11 +50,18 @@ public class CardDeliveryTest {
         $$x("//input[@type='tel']").get(1).val("+79237481592");
         $("[data-test-id='agreement']").click();
         $(withText("Забронировать")).click();
-        $(byText("Успешно!")).shouldBe(visible,Duration.ofSeconds(10));
-
-
+        $(byText("Успешно!")).shouldBe(visible, Duration.ofSeconds(10));
     }
 
 
+
+
+
+
 }
+
+
+
+
+
 
