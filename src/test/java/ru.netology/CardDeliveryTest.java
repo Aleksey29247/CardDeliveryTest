@@ -1,13 +1,10 @@
 package ru.netology;
 
 import com.codeborne.selenide.Configuration;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+
 
 import java.time.Duration;
 
@@ -18,28 +15,13 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliveryTest {
 
-    private WebDriver driver;
 
 
-    @BeforeAll
-    public static void setUpAll() {
-         WebDriverManager.chromedriver().setup();
-    }
-
-    @BeforeEach
-    public void setUp() {
-        Configuration.holdBrowserOpen = true;
-        Configuration.browserSize = "800x800";
-    }
-
-    @AfterEach
-    void tearDown() {
-
-    }
 
     @Test
     public void souldSendForm() {
         Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "800x800";
         open("http://localhost:9999/");
         $$x("//input[@type= 'text']").get(0).val("Новосибирск");
         $("[data-test-id='date'] input").sendKeys(Keys.chord(Keys.SHIFT, Keys.HOME), Keys.BACK_SPACE);
