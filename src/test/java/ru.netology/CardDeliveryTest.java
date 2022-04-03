@@ -30,12 +30,16 @@ public class CardDeliveryTest {
        $("[data-test-id='agreement']").click();
        $$("button").find(exactText("Забронировать")).click();
        $$("button").find(exactText("Успешно!"));
-
     }
 
-
-
-
+    @Test
+    public void selectTheDesiredCity() {
+        Configuration.holdBrowserOpen = true;
+        Configuration.browserSize = "800x800";
+        open("http://localhost:9999/");
+        $$x("//input[@type= 'text']").get(0).val("Но");
+        $(withText("Новосибирск")).click();
+         }
 }    
 
 
