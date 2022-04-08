@@ -16,6 +16,12 @@ import static com.codeborne.selenide.Selenide.*;
 public class CardDeliveryTest {
 
 
+    String planningDate = generateDate(4);
+
+    public String generateDate(int days) {
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
+
     @Test
     public void souldSendForm() {
         Configuration.holdBrowserOpen = true;
@@ -30,14 +36,6 @@ public class CardDeliveryTest {
         $$(withText("Забронировать")).first().click();
         $("[class='notification__content']")
                 .shouldHave(Condition.text("Встреча успешно забронирована на " + (planningDate)), Duration.ofSeconds(15));
-    }
-
-
-    String planningDate = generateDate(4);
-
-    public String generateDate(int days) {
-        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-
     }
 
     @Test
